@@ -24,7 +24,7 @@ Date.prototype.lastYear2 = function() {
 
 // much more readable solution. Are there perfomance differences here?
 
- new Date('1900-10-10').lastYear2()
+// new Date('1900-10-10').lastYear2()
 
 // should return '1899'
 
@@ -34,6 +34,16 @@ Date.prototype.lastYear2 = function() {
 
 // how do we accomplish this? we're adding an automatic item to each item in an array..... This time we only want to have to call map() so we are not adding a method. so we're altering the basic functionality of the map method....
 
+// Andrei's solution:
+Array.prototype.map = function() {
+  let arr = [];
+  for(let i = 0; i < this.length; i++) {
+    arr.push((this[i] + '🗺️'))
+  }
+  return arr
+}
+// for some reason this isn't working.... nevermind, works in console but not is repl.it. 
 
-// console.log([1, 2, 3].map())
+
+console.log([1, 2, 3].map())
 // should return 1🗺️, 2🗺️, 3🗺️
